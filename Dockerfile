@@ -3,7 +3,6 @@ LABEL author="jianzhichun"
 LABEL email="zzchun12826@gmail.com"
 
 WORKDIR /app
-COPY . .
-RUN chmod +x ./mvnw
+COPY ./release/danmu-analyzer.jar .
 
-CMD ./mvnw clean spring-boot:run
+CMD java -jar ./danmu-analyzer.jar
