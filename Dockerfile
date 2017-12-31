@@ -4,7 +4,6 @@ LABEL email="zzchun12826@gmail.com"
 
 WORKDIR /app
 COPY . .
-RUN chmod +x ./mvnw &&\
-    ./mvnw clean package
+RUN chmod +x ./mvnw
 
-CMD java -jar ./target/danmu-analyzer.jar
+CMD ./mvnw clean spring-boot:run
