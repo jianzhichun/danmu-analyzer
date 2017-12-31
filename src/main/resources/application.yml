@@ -1,0 +1,6 @@
+spring.mvc.async.request-timeout: -1
+
+server: 
+  compression: 
+    enabled: true
+    mime-types: application/javascript,application/json,text/css,text/html,text/plain

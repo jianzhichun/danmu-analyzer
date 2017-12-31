@@ -1,0 +1,7 @@
+<div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  <angular-tag-cloud [data]="data" (clicked)="showData($event)" [width]="options.width" [height]="options.height" [overflow]="options.overflow">
+  </angular-tag-cloud>
+  <div *ngIf="clicked">
+    <span [style.color]="clicked.color">{{clicked.text}}</span>: {{clicked.weight}}</div>
+</div>
