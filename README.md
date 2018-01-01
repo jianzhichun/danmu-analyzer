@@ -10,8 +10,8 @@
 
 **Live demo**
 
-*   [http://122.152.221.102](http://122.152.221.102)
-*   [http://122.152.221.102/word-cloud/douyu-67373](http://122.152.221.102/word-cloud/douyu-67373)
+*   [http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/](http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/)
+*   [http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/](http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/word-cloud/douyu-67373)
 
 **Word Cloud**
 
