@@ -3,7 +3,7 @@ LABEL author="jianzhichun"
 LABEL email="zzchun12826@gmail.com"
 
 WORKDIR /app
-COPY ./target/danmu-analyzer.jar .
+COPY danmu-analyzer.jar .
 
 EXPOSE 8080
 
