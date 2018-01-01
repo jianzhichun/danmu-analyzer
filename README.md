@@ -11,7 +11,7 @@
 **Live demo**
 
 *   [http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/](http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/)
-*   [http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/](http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/word-cloud/douyu-67373)
+*   [http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/word-cloud/douyu-67373](http://danmu-analyzer.7e14.starter-us-west-2.openshiftapps.com/word-cloud/douyu-67373)
 
 **Word Cloud**
 
