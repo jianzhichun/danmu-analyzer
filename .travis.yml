@@ -1,7 +1,12 @@
+sudo: required
+
 language: java
 
 jdk:
   - oraclejdk8
+
+services:
+  - docker
 
 script:
   - mvn clean package jacoco:report coveralls:report docker:build -DpushImage --settings ./.travis/.m2-settings.xml
