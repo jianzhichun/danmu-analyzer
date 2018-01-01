@@ -1,7 +1,7 @@
 ##  danmu-analyzer 
 
 [![Build Status](https://www.travis-ci.org/jianzhichun/danmu-analyzer.svg?branch=master)](https://www.travis-ci.org/jianzhichun/danmu-analyzer)
-[![Docker Stars](https://img.shields.io/docker/build/jianzhichun/danmu-analyzer.svg)](https://hub.docker.com/r/jianzhichun/danmu-analyzer/)
+[![Docker Stars](https://img.shields.io/docker/stars/jianzhichun/danmu-analyzer.svg)](https://hub.docker.com/r/jianzhichun/danmu-analyzer/)
 [![Coverage Status](https://coveralls.io/repos/github/jianzhichun/danmu-analyzer/badge.svg?branch=master)](https://coveralls.io/github/jianzhichun/danmu-analyzer?branch=master)
 [![GitHub issues](https://img.shields.io/github/issues/jianzhichun/danmu-analyzer.svg)](https://github.com/jianzhichun/danmu-analyzer/issues)
 [![GitHub license](https://img.shields.io/github/license/jianzhichun/danmu-analyzer.svg)](https://github.com/jianzhichun/danmu-analyzer/blob/master/LICENSE)
