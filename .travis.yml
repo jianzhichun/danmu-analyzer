@@ -1,22 +1,22 @@
-# sudo: required
+sudo: required
+
 language: java
 
 jdk:
   - oraclejdk8
 
-# services:
-#   - docker
+services:
+  - docker
 
-before_deploy:
+install:
   - mvn clean package jacoco:report coveralls:report
-#   - docker build -t jianzhichun/danmu-analyzer .
 
-# script:
-  # - echo "finishing"
-#   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-#     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-#     docker push jianzhichun/danmu-analyzer;
-#     fi
+script:
+  - docker build -t jianzhichun/danmu-analyzer
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push jianzhichun/danmu-analyzer;
+    fi
 
 cache:
   directories:
@@ -29,4 +29,5 @@ deploy:
   file: target/danmu-analyzer.jar
   skip_cleanup: true
   on:
+    repo: jianzhichun/danmu-analyzer
     tags: true
