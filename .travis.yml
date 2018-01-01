@@ -4,13 +4,10 @@ language: java
 jdk:
   - oraclejdk8
 
-node_js: 
-  - 8
-
 # services:
 #   - docker
 
-before_install:
+install:
   - mvn clean package jacoco:report coveralls:report
 #   - docker build -t jianzhichun/danmu-analyzer .
 
