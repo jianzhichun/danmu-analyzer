@@ -1,4 +1,4 @@
-sudo: required
+# sudo: required
 language: java
 
 jdk:
@@ -7,11 +7,12 @@ jdk:
 # services:
 #   - docker
 
-install:
+before_deploy:
   - mvn clean package jacoco:report coveralls:report
 #   - docker build -t jianzhichun/danmu-analyzer .
 
 # script:
+  # - echo "finishing"
 #   - if [ "$TRAVIS_BRANCH" == "master" ]; then
 #     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
 #     docker push jianzhichun/danmu-analyzer;
