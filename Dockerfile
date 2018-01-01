@@ -5,4 +5,6 @@ LABEL email="zzchun12826@gmail.com"
 WORKDIR /app
 COPY ./release/danmu-analyzer.jar .
 
+EXPOSE 8080
+
 CMD java -jar ./danmu-analyzer.jar

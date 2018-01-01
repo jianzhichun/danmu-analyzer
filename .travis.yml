@@ -1,0 +1,27 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+install:
+  - mvn clean package -DskipTests=true
+
+after_success:
+  - mvn clean package jacoco:report coveralls:report
+
+script:
+  - echo "build finishing"
+
+cache:
+  directories:
+    - $HOME/.m2
+
+deploy:
+  provider: releases
+  api_key:
+    secure: U3HqUZwZoNIQNr6G/lQlfXMY8ctfCqxIxm6x/yqJWR8litgDeW6CU6/4WugHNxL6pY/emRinuXC4r4J8rkMbpG2CNQ01x4ZL9jggQUS8qJQHXExQwY0x8YW7flQOS9m7e5rM+/V+MGMVT0ESjO3ol/u0YVP1TH9qBVIVZyJ2TwC63iizgiX7JwvSNzYnoZ9XAEig9bcoPATeTXCyCYI2yJN5PkzMCHHc3Skgtu1IwIsSwd4E/Gl4it2+PcYXl6AVJFgXltQDbmg3hH8VK+YsjNCgHqVfoT5gMEi5v0uqGdmhtvE4ubklgFVWMrL8vRJWjeTQgi7jvqMXfI61lKyU4PUvJr/B+9HrqNhzdrr7JQoXawsKy7qgqvlyNC/Hm2OPZdSAb4IGqrCioV56CeUXxlwnMVOJCDa8ZMgeFmc3LHCinhaYh0LkjPHBbwwVOI9fv4PoP8TUJ42l+mHe8yk/Hlyi9whiZO71hkRCNth6jBs2Ti3tqipcRXWMiAVDrQkFu9xfcKr0qWJWJWjifk77D+UojsowTYgJuBz37Feko0hWzphnkTcnxxDgbb3FThmixnQc3WjsN8G+gDB48Gr69OVwHKnM2NQG+282l0sHVIMjiI3NKaEXrU1kS7A0+4/rbWkbRmDHgf1WvvcMcl+YgBnowLJbbOY6r7P/8lLTXT0=
+  file: target/danmu-analyzer.jar
+  skip_cleanup: true
+  on:
+    repo: jianzhichun/danmu-analyzer
+    tags: true
