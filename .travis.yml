@@ -8,11 +8,8 @@ jdk:
 services:
   - docker
 
-before_install: 
-  - chmod +x ./mvnw
-
 install: 
-  - ./mvnw clean package jacoco:report coveralls:report
+  - mvn clean package jacoco:report coveralls:report
 
 script:
   - docker build -t jianzhichun/danmu-analyzer .
