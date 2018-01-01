@@ -8,8 +8,15 @@ jdk:
 services:
   - docker
 
+before_install:
+  - mvn clean package jacoco:report coveralls:report
+
 script:
-  - mvn clean package jacoco:report coveralls:report docker:build -DpushImage --settings ./.travis/.m2-settings.xml
+  - docker build -t jianzhichun/danmu-analyzer .
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push jianzhichun/danmu-analyzer;
+    fi
 
 cache:
   directories:
