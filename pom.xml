@@ -121,8 +121,15 @@
 				<version>1.6</version>
 				<configuration>
 					<workingDirectory>frontend</workingDirectory>
+					<nodeVersion>v8.9.3</nodeVersion>
 				</configuration>
 				<executions>
+					<execution>
+						<id>install-npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+					</execution>
 					<execution>
 						<id>npm-install</id>
 						<goals>
