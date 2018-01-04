@@ -1,5 +1,7 @@
 spring.mvc.async.request-timeout: -1
 
+management.security.enabled: false
+
 server: 
   compression: 
     enabled: true

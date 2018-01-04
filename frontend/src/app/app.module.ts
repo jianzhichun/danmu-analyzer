@@ -10,8 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
 
 export const ROUTES: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'word-cloud/:source', component: WordCloudComponent }
+  { path: 'view', component: HomeComponent },
+  { path: 'view/word-cloud/:source', component: WordCloudComponent }
 ];
 
 @NgModule({

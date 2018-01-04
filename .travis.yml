@@ -9,7 +9,7 @@ services:
   - docker
 
 install: 
-  - mvn clean package jacoco:report coveralls:report
+  - mvn -f ./backend/pom.xml -P frontend clean package jacoco:report coveralls:report
 
 script:
   - docker build -t jianzhichun/danmu-analyzer .

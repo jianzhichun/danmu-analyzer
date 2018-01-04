@@ -39,7 +39,7 @@
 
 	<profiles>
 		<profile>
-			<id>front</id>
+			<id>frontend</id>
 			<properties>
 				<build.nofront>false</build.nofront>
 				<skipTests>true</skipTests>
@@ -52,11 +52,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-netflix-core</artifactId>
@@ -67,24 +71,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<dependency>
 			<groupId>io.reactivex</groupId>
 			<artifactId>rxnetty-tcp</artifactId>
 			<version>0.5.2</version>
 		</dependency>
 		<dependency>
 			<groupId>io.reactivex</groupId>
-			<artifactId>rxjava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.reactivex</groupId>
 			<artifactId>rxnetty-common</artifactId>
 			<version>0.5.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-handler</artifactId>
@@ -92,9 +88,15 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.reactivex</groupId>
+			<artifactId>rxjava</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.hankcs</groupId>
 			<artifactId>hanlp</artifactId>
@@ -120,8 +122,9 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.6</version>
 				<configuration>
-					<workingDirectory>frontend</workingDirectory>
+					<workingDirectory>../frontend</workingDirectory>
 					<nodeVersion>v8.9.3</nodeVersion>
+					<skip>${build.nofront}</skip>
 				</configuration>
 				<executions>
 					<execution>
@@ -135,6 +138,9 @@
 						<goals>
 							<goal>npm</goal>
 						</goals>
+						<configuration>
+							<arguments>install --force</arguments>
+						</configuration>
 					</execution>
 					<execution>
 						<id>npm-build</id>
@@ -153,7 +159,7 @@
 				<configuration>
 					<repoToken>7jrvbXuvmzcmnpao6UUs97HnJiufQ7mpN</repoToken>
 				</configuration>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -181,7 +187,7 @@
 							<outputDirectory>${basedir}/target/classes/static/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/frontend/dist</directory>
+									<directory>../frontend/dist</directory>
 								</resource>
 							</resources>
 						</configuration>

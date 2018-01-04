@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.google.common.collect.ImmutableMap;
@@ -35,15 +37,23 @@ import io.reactivex.netty.protocol.tcp.client.TcpClient;
 import rx.Observable;
 
 @SpringBootApplication
-public class DanmuAnalyzerApplication {
+public class DanmuAnalyzerApplication extends WebMvcConfigurerAdapter {
 
-	private static final Logger LOG = LoggerFactory.getLogger(DanmuAnalyzerApplication.class);
-	
 	public static void main(String[] args) {
 		SpringApplication.run(DanmuAnalyzerApplication.class, args);
 	}
 	
+	
+	
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addRedirectViewController("/", "/view");
+		registry.addViewController("/view/**").setViewName("forward:/index.html");
+	}
+
+
 	@Bean ConnectionRequest<ByteBuf, String> douyuConnectionRequest(){
+		final Logger LOG = LoggerFactory.getLogger("douyuConnectionRequest");
 		return TcpClient
 				.newClient("openbarrage.douyutv.com", 8601)
 				.addChannelHandlerLast("message2byte-encoder",
