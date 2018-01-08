@@ -73,13 +73,12 @@ public class DanmuAnalyzerApplication extends WebMvcConfigurerAdapter {
 		               */
 						protected void encode(ChannelHandlerContext ctx, String msg, ByteBuf out) throws Exception {
 							LOG.info("Send: {} to douyu", msg);
-							out = out.order(ByteOrder.LITTLE_ENDIAN);
-	                        out.writeInt(msg.getBytes().length + 9);
-	                        out.writeInt(msg.getBytes().length + 9);
-	                        out.writeShort(689);
-	                        out.writeShort(0);
-	                        out.writeBytes(msg.getBytes());
-	                        out.writeByte(0);
+	                        out.writeIntLE(msg.getBytes().length + 9)
+	                        	.writeIntLE(msg.getBytes().length + 9)
+	                        	.writeShortLE(689)
+	                        	.writeShortLE(0)
+	                        	.writeBytes(msg.getBytes())
+	                        	.writeByte(0);
 	                    }
 					})
 				.addChannelHandlerLast("length-field-based-frame-decoder",

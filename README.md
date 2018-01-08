@@ -17,6 +17,16 @@
 
 ![word-cloud](/images/word-cloud.PNG)
 
+**Architecture**
+
+*   all:
+    *   [allArchitecture](https://code2flow.com/TKKrI8)
+*   next step:
+    *   ![2ndArchitecture](/images/2ndArchitecture.png)
+
+**Thanks**
+
+[bylomo](https://github.com/bylomo)
 
 **License**
 
